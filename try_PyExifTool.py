@@ -1,8 +1,8 @@
 import exiftool
 
-file = "/Users/evgeniy/Pictures/2022/20220630_Юридический форум/20220630EPAV0184.ORF"
-file = '/Users/evgeniy/Pictures/2022/20220914_Северная звезда/20220914PEV_6785.NEF'
-
+# file = "/Users/evgeniy/Pictures/2022/20220630_Юридический форум/20220630EPAV0184.ORF"
+# file = '/Users/evgeniy/Pictures/2022/20220914_Северная звезда/20220914PEV_6785.NEF'
+file = '/Volumes/big4photo-4/2022/01_January/20220108_музей Бродского/20220108PEV_6568.DNG'
 
 def read_xmp():
     with exiftool.ExifToolHelper() as et:
