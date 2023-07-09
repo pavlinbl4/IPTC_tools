@@ -1,9 +1,6 @@
 import customtkinter
 from tkinter import filedialog
-
 from datetime import datetime
-
-from tag_photo_ingest.find_all_tagged_photo import copy_files, find_image_files
 
 
 def gui_window():
@@ -21,44 +18,44 @@ def gui_window():
     root_tk.title("ingest tagged photo")
 
     label = customtkinter.CTkLabel(root_tk,
-                                   text=f'All protected images will be copied to "Pictures" \n directory  in {today_date} sub folder.',
+                                   text=f'All protected images will be copied to "Pictures" '
+                                        f'\n directory  in {today_date} sub folder.',
                                    fg_color="transparent",
                                    text_color='green',
                                    font=('Charter', 22)
                                    )
     label.place(relx=0.1, rely=0.15)
 
-
-    def choose_folder_1():
-        folder_path = filedialog.askdirectory(initialdir='/Volumes/NO NAME')
+    def choose_source_folder():
+        source_path = filedialog.askdirectory(initialdir='/Volumes/NO NAME')
         text1 = customtkinter.CTkLabel(root_tk,
-                                       text=f'Source path - {folder_path}',
+                                       text=f'Source path - {source_path}',
                                        justify='center',
                                        fg_color="transparent",
                                        text_color='green',
                                        font=('Charter', 16)
                                        )
         text1.place(relx=0.3, rely=0.6)
-        tagged_files = find_image_files(folder_path)
-        return tagged_files
+        return
 
-    button1 = customtkinter.CTkButton(master=root_tk,
-                                      height=40,
-                                      width=300,
-                                      corner_radius=10,
-                                      fg_color=("black", "gray"),  # <- tuple color for light and dark theme
-                                      text="Select source folder",
-                                      command=choose_folder_1)
-    button1.place(relx=0.5, rely=0.5, anchor='center')
+    folder_button = customtkinter.CTkButton(master=root_tk,
+                                            height=40,
+                                            width=300,
+                                            corner_radius=10,
+                                            fg_color=("black", "gray"),  # <- tuple color for light and dark theme
+                                            text="Select source folder",
+                                            command=choose_source_folder)
+    folder_button.place(relx=0.5, rely=0.5, anchor='center')
 
-    button2 = customtkinter.CTkButton(master=root_tk,
-                                      height=40,
-                                      width=300,
-                                      corner_radius=10,
-                                      fg_color=("black", "gray"),  # <- tuple color for light and dark theme
-                                      text="Copy images",
-                                      command=copy_files())
-    button2.place(relx=0.5, rely=0.8, anchor='center')
+    convert_button = customtkinter.CTkButton(master=root_tk,
+                                             height=40,
+                                             width=300,
+                                             corner_radius=10,
+                                             fg_color=("black", "gray"),  # <- tuple color for light and dark theme
+                                             text="Copy images",
+
+                                             )
+    convert_button.place(relx=0.5, rely=0.8, anchor='center')
 
     root_tk.mainloop()
 
