@@ -37,7 +37,13 @@ def copy_files(files: list):
         print(f"file {file.split('/')[-1]} was coped to {today_date} folder ")
 
 
+def main_copy_tagged_images(path):
+    copy_files(find_image_files(path))
+
+
+
 if __name__ == '__main__':
     tagged_files = find_image_files(select_folder())
     print(f'found {len(tagged_files)} protected images')
     copy_files(tagged_files)
+    # main_copy_tagged_images('/Users/evgeniy/Pictures/2023/05_May/20230502_Банковская карта на крючке')
